@@ -29,7 +29,8 @@ module.exports.index = async (req, res) => {
     }
 
     // 3. Find all listings that match the combined filter
-    const allListings = await Listing.find(filter);
+    const allListings = await Listing.find(filter).populate("owner");
+
 
     // 4. Handle no results
     if (allListings.length === 0 && (q || category)) {
