@@ -1,15 +1,15 @@
-# 🎥 Nexus — AI-Integrated Video Conferencing Platform
+# 🏠 Nestora — Full-Stack Accommodation Booking Platform
 
 <div align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=FF4380&height=200&section=header&text=NEXUS&fontSize=90&animation=fadeIn&fontColor=ffffff" />
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=47A248&height=200&section=header&text=NESTORA&fontSize=90&animation=fadeIn&fontColor=ffffff" />
 
   <p align="center">
-    <strong>A high-performance video conferencing solution with real-time AI summarization.</strong>
+    <strong>A comprehensive Airbnb-inspired marketplace for property listings and bookings.</strong>
   </p>
 
   <p align="center">
-    <a href="https://nexus-videoconference-j11v.onrender.com/" target="_blank">
-      <img src="https://img.shields.io/badge/Live_Demo-FF4380?style=for-the-badge&logo=render&logoColor=white" />
+    <a href="https://nestora-ms4s.onrender.com/listings" target="_blank">
+      <img src="https://img.shields.io/badge/Live_Demo-47A248?style=for-the-badge&logo=render&logoColor=white" />
     </a>
   </p>
 </div>
@@ -18,83 +18,66 @@
 
 ## 🚀 Overview
 
-Nexus is a full-stack video conferencing application built with the **MERN stack**. It uses **WebRTC** for real-time peer-to-peer communication and integrates **Google Gemini 2.5 Flash** for AI-powered meeting summaries.
+Nestora is a full-stack web application designed for managing property listings, user reviews, and location-based discovery. Built using **Node.js, Express.js, MongoDB, and EJS**, it follows the **MVC (Model-View-Controller)** architecture to ensure clean, scalable, and maintainable code.
 
 ---
 
 ## ✨ Key Features
 
-* 📹 **P2P Video & Audio** — Low-latency communication using WebRTC
-* 🤖 **AI Summarization** — Automatic meeting recaps using Gemini
-* 💬 **Real-Time Chat** — Instant messaging via Socket.io
-* 📝 **Live Captions** — Speech-to-text using Web Speech API
-* 🖥️ **Screen Sharing** — Share your screen seamlessly
-* 📜 **Meeting History** — Stored in MongoDB
+* 🏠 **Property Listings:** Full CRUD operations (Create, Read, Update, Delete)
+* 🔐 **Authentication & Authorization:** Secure workflows using Passport.js
+* 🗺️ **Interactive Maps:** Location visualization using Mapbox API
+* ☁️ **Image Management:** Cloudinary integration for uploads and optimization
+* 💬 **Review System:** Ratings and feedback for listings
+* 📱 **Responsive UI:** Built with Bootstrap for all devices
 
 ---
 
 ## 🛠️ Tech Stack
 
-**Frontend:** React 18, Tailwind CSS, Material UI, Socket.io-client
-**Backend:** Node.js, Express.js, Socket.io, WebRTC (Simple-Peer)
-**Database:** MongoDB, Mongoose
-**AI:** Google Gemini 2.5 Flash API
-**Deployment:** Render
+**Backend:** Node.js, Express.js
+**Database:** MongoDB Atlas, Mongoose
+**Templating:** EJS (Embedded JavaScript)
+**Styling:** Bootstrap 5, CSS3
+**APIs:** Mapbox (Geocoding), Cloudinary (Media Storage)
 
 ---
 
-## 📂 System Architecture
+## 📂 System Architecture (MVC)
 
 ```mermaid
 graph TD
 
-    %% User Layer
-    User((User / Client))
+    User((User / Browser)) -->|HTTP Request| Routes[Routes]
 
-    %% Frontend
-    subgraph Frontend["Frontend (EJS + CSS)"]
-        UI[UI Pages]
-    end
-
-    %% Backend
     subgraph Backend["Node.js + Express (MVC)"]
-        Routes[Routes]
-        Controllers[Controllers]
-        Models[Models]
+        Routes --> Controllers[Controllers]
+        Controllers --> Models[Models (Mongoose)]
+        Controllers --> Views[Views (EJS)]
     end
 
-    %% Database
-    DB[(MongoDB)]
-
-    %% External Services
     subgraph Services["External Services"]
-        Mapbox[Mapbox API]
-        Cloudinary[Cloudinary]
+        Models <-->|Data| DB[(MongoDB Atlas)]
+        Controllers -->|Images| Cloudinary[Cloudinary]
+        Views -->|Maps| Mapbox[Mapbox API]
     end
 
-    %% Flow
-    User --> UI
-    UI --> Routes
-    Routes --> Controllers
-    Controllers --> Models
-    Models --> DB
-
-    %% External Integrations
-    Controllers --> Mapbox
-    Controllers --> Cloudinary
+    Views -->|HTML Response| User
 ```
 
 ---
 
 ## 🔑 Environment Variables
 
-Create a `.env` file inside the **server** folder:
+Create a `.env` file in the root directory:
 
 ```env
-PORT=5000
-MONGODB_URI=your_mongodb_atlas_url
-GEMINI_API_KEY=your_google_gemini_api_key
-FRONTEND_URL=http://localhost:3000
+CLOUD_NAME=your_cloudinary_name
+CLOUD_API_KEY=your_cloudinary_key
+CLOUD_API_SECRET=your_cloudinary_secret
+MAPBOX_TOKEN=your_mapbox_token
+ATLASDB_URL=your_mongodb_connection_string
+SECRET=your_session_secret
 ```
 
 ---
@@ -104,35 +87,36 @@ FRONTEND_URL=http://localhost:3000
 ### 1️⃣ Clone Repository
 
 ```bash
-git clone https://github.com/nehalikareddy/Nexus-VideoCall.git
-cd Nexus-VideoCall
+git clone https://github.com/nehalikareddy/Nestora.git
+cd Nestora
 ```
 
-### 2️⃣ Backend Setup
+### 2️⃣ Install Dependencies
 
 ```bash
-cd server
 npm install
-npm start
 ```
 
-### 3️⃣ Frontend Setup
+### 3️⃣ Run Application
 
 ```bash
-cd client
-npm install
-npm start
+node app.js
 ```
 
 ---
 
 ## 🤝 Contributing
 
-This project explores the combination of **Real-Time Communication (RTC)** and **Artificial Intelligence**.
+This project was built to strengthen full-stack development skills and understand real-world backend architecture.
 
 Feel free to:
 
-* Fork the repo
+* Fork the repository
 * Improve features
 * Submit pull requests 🚀
 
+---
+
+<div align="center">
+  Made with 💚 for full-stack development
+</div>
