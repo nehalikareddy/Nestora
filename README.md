@@ -116,8 +116,3 @@ Feel free to:
 * Improve features
 * Submit pull requests 🚀
 
----
-
-<div align="center">
-  Made with ❤️ for learning & innovation
-</div>
