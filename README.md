@@ -61,8 +61,6 @@ graph TD
 
     Views -->|HTML Response| User
 
----
-
 ### 🔑 Environment Variables
 
 To run Nestora locally, create a `.env` file in the root directory and add the following:
