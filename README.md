@@ -1,15 +1,15 @@
 # 🏠 Nestora — Full-Stack Accommodation Booking Platform
 
 <div align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=47A248&height=200&section=header&text=NESTORA&fontSize=90&animation=fadeIn&fontColor=ffffff" />
-
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=FF4380&height=200&section=header&text=NESTORA&fontSize=90&animation=fadeIn&fontColor=ffffff" />
+  
   <p align="center">
     <strong>A comprehensive Airbnb-inspired marketplace for property listings and bookings.</strong>
   </p>
 
   <p align="center">
     <a href="https://nestora-ms4s.onrender.com/listings" target="_blank">
-      <img src="https://img.shields.io/badge/Live_Demo-47A248?style=for-the-badge&logo=render&logoColor=white" />
+      <img src="https://img.shields.io/badge/Live_Demo-FF4380?style=for-the-badge&logo=render&logoColor=white" />
     </a>
   </p>
 </div>
