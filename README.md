@@ -50,7 +50,7 @@ graph TD
     UserA((User A)) <-->|Signaling via Socket.io| Server[Node.js Server]
     UserB((User B)) <-->|Signaling via Socket.io| Server
     
-    UserA ==|P2P WebRTC Connection|== UserB
+    UserA ---|P2P WebRTC Connection| UserB
 
     subgraph AI_Pipeline
         Server -->|Transcripts| Gemini[Google Gemini 2.5 Flash]
