@@ -62,13 +62,31 @@ graph TD
     Views -->|HTML Response| User
 
 
+```
 🔑 Environment Variables
-To run Nestora locally, create a .env file in the root directory and add the following:
+To run Nexus locally, create a .env file in your server directory:
 
 Code snippet
-CLOUD_NAME=your_cloudinary_name
-CLOUD_API_KEY=your_cloudinary_key
-CLOUD_API_SECRET=your_cloudinary_secret
-MAPBOX_TOKEN=your_mapbox_token
-ATLASDB_URL=your_mongodb_atlas_connection_string
-SECRET=your_session_secret
+PORT=5000
+MONGODB_URI=your_mongodb_atlas_url
+GEMINI_API_KEY=your_google_gemini_api_key
+FRONTEND_URL=http://localhost:3000
+
+⚙️ Installation & Local Setup
+Clone the Project
+
+Bash
+git clone [https://github.com/nehalikareddy/Nexus-VideoCall.git](https://github.com/nehalikareddy/Nexus-VideoCall.git)
+cd Nexus-VideoCall
+Setup Backend
+
+Bash
+cd server
+npm install
+npm start
+Setup Frontend
+
+Bash
+cd client
+npm install
+npm start
