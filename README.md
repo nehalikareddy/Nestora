@@ -50,10 +50,10 @@ graph TD
 
     User((User / Browser)) -->|HTTP Request| Routes[Routes]
 
-    subgraph Backend["Node.js + Express (MVC)"]
+    subgraph Backend["Node.js + Express MVC"]
         Routes --> Controllers[Controllers]
-        Controllers --> Models[Models (Mongoose)]
-        Controllers --> Views[Views (EJS)]
+        Controllers --> Models[Models - Mongoose]
+        Controllers --> Views[Views - EJS]
     end
 
     subgraph Services["External Services"]
