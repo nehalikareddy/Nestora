@@ -1,92 +1,123 @@
-# 🏠 Nestora — Full-Stack Accommodation Booking Platform
+# 🎥 Nexus — AI-Integrated Video Conferencing Platform
 
 <div align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=47A248&height=200&section=header&text=NESTORA&fontSize=90&animation=fadeIn&fontColor=ffffff" />
-  
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=FF4380&height=200&section=header&text=NEXUS&fontSize=90&animation=fadeIn&fontColor=ffffff" />
+
   <p align="center">
-    <strong>A comprehensive Airbnb-inspired marketplace for property listings and bookings.</strong>
+    <strong>A high-performance video conferencing solution with real-time AI summarization.</strong>
   </p>
 
   <p align="center">
-    <a href="https://nestora-ms4s.onrender.com/listings" target="_blank">
-      <img src="https://img.shields.io/badge/Live_Demo-47A248?style=for-the-badge&logo=render&logoColor=white" />
+    <a href="https://nexus-videoconference-j11v.onrender.com/" target="_blank">
+      <img src="https://img.shields.io/badge/Live_Demo-FF4380?style=for-the-badge&logo=render&logoColor=white" />
     </a>
   </p>
 </div>
 
 ---
 
-### 🚀 Overview
+## 🚀 Overview
 
-Nestora is a full-stack web application designed to handle property listings, user reviews, and location-based mapping. Built using the **MERN stack** (with EJS for server-side rendering), it follows the **MVC (Model-View-Controller)** design pattern to ensure clean, maintainable, and scalable code.
-
-### ✨ Key Features
-
-* 🏠 **Property Management:** Full CRUD functionality for creating, viewing, updating, and deleting listings.
-* 🔐 **Authentication & Authorization:** Secure user workflows powered by **Passport.js**.
-* 🗺️ **Interactive Maps:** Real-time geocoding and map visualization using **Mapbox API**.
-* ☁️ **Media Management:** Image hosting and optimization integrated with **Cloudinary**.
-* 💬 **Review System:** Dynamic rating and feedback system for individual properties.
-* 📱 **Responsive UI:** Built with **Bootstrap 5** for a seamless experience across all devices.
+Nexus is a full-stack video conferencing application built with the **MERN stack**. It uses **WebRTC** for real-time peer-to-peer communication and integrates **Google Gemini 2.5 Flash** for AI-powered meeting summaries.
 
 ---
 
-### 🛠️ Tech Stack
+## ✨ Key Features
 
-**Backend:** Node.js, Express.js  
-**Database:** MongoDB Atlas, Mongoose  
-**Templating:** EJS (Embedded JavaScript)  
-**Styling:** Bootstrap 5, CSS3  
-**APIs:** Mapbox (Maps/Geocoding), Cloudinary (Image Hosting)  
+* 📹 **P2P Video & Audio** — Low-latency communication using WebRTC
+* 🤖 **AI Summarization** — Automatic meeting recaps using Gemini
+* 💬 **Real-Time Chat** — Instant messaging via Socket.io
+* 📝 **Live Captions** — Speech-to-text using Web Speech API
+* 🖥️ **Screen Sharing** — Share your screen seamlessly
+* 📜 **Meeting History** — Stored in MongoDB
 
 ---
 
-### 📂 System Architecture (MVC)
+## 🛠️ Tech Stack
+
+**Frontend:** React 18, Tailwind CSS, Material UI, Socket.io-client
+**Backend:** Node.js, Express.js, Socket.io, WebRTC (Simple-Peer)
+**Database:** MongoDB, Mongoose
+**AI:** Google Gemini 2.5 Flash API
+**Deployment:** Render
+
+---
+
+## 📂 System Architecture
 
 ```mermaid
 graph TD
-    User((User/Browser)) -->|HTTP Request| Routes[Routes /listings]
+    UserA((User A)) <-->|Signaling via Socket.io| Server[Node.js Server]
+    UserB((User B)) <-->|Signaling via Socket.io| Server
     
-    subgraph Express_Backend [Node.js & Express Server]
-        Routes -->|Calls| Controllers[Controllers]
-        Controllers -->|Business Logic| Models[Models / Mongoose]
-        Controllers -->|Renders| Views[Views / EJS]
+    UserA ==|P2P WebRTC Connection|== UserB
+
+    subgraph AI_Pipeline
+        Server -->|Transcripts| Gemini[Google Gemini 2.5 Flash]
+        Gemini -->|Markdown Recap| Server
+        Server -->|Store| DB[(MongoDB)]
     end
 
-    subgraph External_Services [Services & Storage]
-        Models <-->|Query/Data| MongoDB[(MongoDB Atlas)]
-        Controllers -->|Uploads| Cloudinary[Cloudinary Media]
-        Views -->|Map Data| Mapbox[Mapbox API]
+    subgraph Features
+        UserA -.->|Speech-to-Text| Captions[Web Speech API]
+        Server -.->|Chat Events| Socket[Socket.io]
     end
-
-    Views -->|HTML Response| User
-
-
 ```
-🔑 Environment Variables
-To run Nexus locally, create a .env file in your server directory:
 
-Code snippet
+---
+
+## 🔑 Environment Variables
+
+Create a `.env` file inside the **server** folder:
+
+```env
 PORT=5000
 MONGODB_URI=your_mongodb_atlas_url
 GEMINI_API_KEY=your_google_gemini_api_key
 FRONTEND_URL=http://localhost:3000
+```
 
-⚙️ Installation & Local Setup
-Clone the Project
+---
 
-Bash
-git clone [https://github.com/nehalikareddy/Nexus-VideoCall.git](https://github.com/nehalikareddy/Nexus-VideoCall.git)
+## ⚙️ Installation & Setup
+
+### 1️⃣ Clone Repository
+
+```bash
+git clone https://github.com/nehalikareddy/Nexus-VideoCall.git
 cd Nexus-VideoCall
-Setup Backend
+```
 
-Bash
+### 2️⃣ Backend Setup
+
+```bash
 cd server
 npm install
 npm start
-Setup Frontend
+```
 
-Bash
+### 3️⃣ Frontend Setup
+
+```bash
 cd client
 npm install
 npm start
+```
+
+---
+
+## 🤝 Contributing
+
+This project explores the combination of **Real-Time Communication (RTC)** and **Artificial Intelligence**.
+
+Feel free to:
+
+* Fork the repo
+* Improve features
+* Submit pull requests 🚀
+
+---
+
+<div align="center">
+  Made with ❤️ for learning & innovation
+</div>
