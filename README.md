@@ -59,7 +59,7 @@ graph TD
         Views -->|Map Data| Mapbox[Mapbox API]
     end
 
-    Views -->|HTML Response| User
+    Views``` -->|HTML Response| User
 
 ### 🔑 Environment Variables
 
